@@ -17,7 +17,7 @@ abstract class ActionFactory {
 
     const action = new Action();
 
-    action.command = rawAction.command || (()=>{});
+    action.command = rawAction.command || (_ => 0);
     action.event = rawAction.event || 'click';
 
     return action;

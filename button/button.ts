@@ -33,16 +33,16 @@ class Button {
 
 abstract class ButtonFactory {
 
-  public static create(rawButton: any): Button {
+  public static create(rawButton: ButtonOptions): Button {
 
     const button = new Button();
 
     button.clazz = rawButton.clazz;
     button.icon = rawButton.icon;
 
-    button.enabled = rawButton.enabled || true;
-    button.visible = rawButton.visible || true;
-    button.show = rawButton.show || true;
+    button.enabled = rawButton.enabled || (_ => true);
+    button.visible = rawButton.visible || (_ => true);
+    button.show = rawButton.show || (_ => true);
 
     button.label = LabelFactory.create(rawButton.label);
     button.action = ActionFactory.create(rawButton.action);
@@ -51,7 +51,7 @@ abstract class ButtonFactory {
     return button;
   }
 
-  public static many(rawButtons: any[]): Button[] {
+  public static many(rawButtons: ButtonOptions[]): Button[] {
     return Array.isArray(rawButtons) ? rawButtons.map(
       rawButton => ButtonFactory.create(rawButton)
     ) : [];
