@@ -1,0 +1,11 @@
+{
+  "name": "agnostic-components",
+  "version": "1.0.0",
+  "description": "Framework agnostic component domain classes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lucas Teles",
+  "license": "ISC"
+}
